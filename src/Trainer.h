@@ -11,6 +11,9 @@
 
 #include "cvGeoGraph.h"
 #include "ofMain.h"
+#include "ofxBlackMagic.h"
+#include "ofxPostGlitch.h"
+
 #include "singleScene_delaunay.h"
 #include "singleScene_crossHatch.h"
 #include "singleScene_tileSquare.h"
@@ -18,10 +21,11 @@
 #include "singleScene_particle.h"
 #include "singleScene_Trail.h"
 
+#define MASK_NUM 2
 class Trainer{
 public:
 
-	void setup();
+	void setup(bool useCamera, int deviceId);
 	void update();
 	void fboReflesh();
 	void draw(int x,int y,int w,int h);
@@ -38,6 +42,7 @@ public:
 	vector<ofVideoPlayer> videos;
 	vector<basicSingleScene*> scenes;
 	ofFbo buffer;
+	ofxPostGlitch postGlitch;
 
 	int currentVideo;
 	int currentGraph;
@@ -46,10 +51,19 @@ public:
 
 	float testVal;
 
-	ofRectangle maskRect[2];
+	ofRectangle maskRect[MASK_NUM];
 
 	bool videoGrab;
+	bool bmGrab;
 	ofVideoGrabber grabCam;
+
+	ofxBlackMagic blackMagicGrabber;
+
+	bool fxEnable;
+	bool autoResetFlow;
+	int autoReset_step;
+
+	float input_volume;
 };
 
 #endif /* defined(__cvGeoGraphics__Trainer__) */

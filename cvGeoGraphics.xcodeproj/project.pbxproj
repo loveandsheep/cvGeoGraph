@@ -116,6 +116,11 @@
 		C6C52CDE1986024800768AE7 /* basicSingleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6C52CDC1986024800768AE7 /* basicSingleScene.cpp */; };
 		C6D6F93C1990D9B0009ACB4E /* particleEmitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6D6F93A1990D9B0009ACB4E /* particleEmitter.cpp */; };
 		C6D6F93F1990D9C4009ACB4E /* trailGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6D6F93D1990D9C4009ACB4E /* trailGenerator.cpp */; };
+		C6DD653A19922B0700C28609 /* DeckLinkAPIDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6DD650619922B0700C28609 /* DeckLinkAPIDispatch.cpp */; };
+		C6DD653B19922B0700C28609 /* ColorConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6DD650A19922B0700C28609 /* ColorConversion.cpp */; };
+		C6DD653C19922B0700C28609 /* DeckLinkController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6DD650C19922B0700C28609 /* DeckLinkController.cpp */; };
+		C6DD653D19922B0700C28609 /* ofxBlackMagic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6DD650E19922B0700C28609 /* ofxBlackMagic.cpp */; };
+		C6DD653E19922B0700C28609 /* ofxPostGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6DD653719922B0700C28609 /* ofxPostGlitch.cpp */; };
 		C6FE64F74F1EA1D98C8F9847 /* ofxMidiMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E7EDA67EDF213FC0E83D17 /* ofxMidiMessage.cpp */; };
 		D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4DD23693DFAB8EC05FAA5D /* ofxCvShortImage.cpp */; };
 		D409288D137DB82107887FFD /* ofxFft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32CA89CD22339F4F9433CAF6 /* ofxFft.cpp */; };
@@ -466,6 +471,28 @@
 		C6D6F93B1990D9B0009ACB4E /* particleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particleEmitter.h; sourceTree = "<group>"; };
 		C6D6F93D1990D9C4009ACB4E /* trailGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = trailGenerator.cpp; sourceTree = "<group>"; };
 		C6D6F93E1990D9C4009ACB4E /* trailGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trailGenerator.h; sourceTree = "<group>"; };
+		C6DD64EF19922B0700C28609 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C6DD64FD19922B0700C28609 /* DeckLinkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPI.h; sourceTree = "<group>"; };
+		C6DD64FE19922B0700C28609 /* DeckLinkAPIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIConfiguration.h; sourceTree = "<group>"; };
+		C6DD64FF19922B0700C28609 /* DeckLinkAPIDeckControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIDeckControl.h; sourceTree = "<group>"; };
+		C6DD650019922B0700C28609 /* DeckLinkAPIDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIDiscovery.h; sourceTree = "<group>"; };
+		C6DD650119922B0700C28609 /* DeckLinkAPIModes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIModes.h; sourceTree = "<group>"; };
+		C6DD650219922B0700C28609 /* DeckLinkAPIStreaming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIStreaming.h; sourceTree = "<group>"; };
+		C6DD650319922B0700C28609 /* DeckLinkAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPITypes.h; sourceTree = "<group>"; };
+		C6DD650419922B0700C28609 /* DeckLinkAPIVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkAPIVersion.h; sourceTree = "<group>"; };
+		C6DD650619922B0700C28609 /* DeckLinkAPIDispatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeckLinkAPIDispatch.cpp; sourceTree = "<group>"; };
+		C6DD650719922B0700C28609 /* license.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.md; sourceTree = "<group>"; };
+		C6DD650819922B0700C28609 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		C6DD650A19922B0700C28609 /* ColorConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorConversion.cpp; sourceTree = "<group>"; };
+		C6DD650B19922B0700C28609 /* ColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorConversion.h; sourceTree = "<group>"; };
+		C6DD650C19922B0700C28609 /* DeckLinkController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeckLinkController.cpp; sourceTree = "<group>"; };
+		C6DD650D19922B0700C28609 /* DeckLinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckLinkController.h; sourceTree = "<group>"; };
+		C6DD650E19922B0700C28609 /* ofxBlackMagic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBlackMagic.cpp; sourceTree = "<group>"; };
+		C6DD650F19922B0700C28609 /* ofxBlackMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBlackMagic.h; sourceTree = "<group>"; };
+		C6DD651019922B0700C28609 /* TripleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripleBuffer.h; sourceTree = "<group>"; };
+		C6DD651219922B0700C28609 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C6DD653719922B0700C28609 /* ofxPostGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPostGlitch.cpp; sourceTree = "<group>"; };
+		C6DD653819922B0700C28609 /* ofxPostGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxPostGlitch.h; sourceTree = "<group>"; };
 		C70D8946940288799E82131E /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSliderGroup.h; path = ../../../addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
 		C76DE5C29BDBD2CAA1DD0021 /* ofxCvContourFinder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvContourFinder.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvContourFinder.cpp; sourceTree = SOURCE_ROOT; };
 		C88333E71C9457E441C33474 /* ofxButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxButton.cpp; path = ../../../addons/ofxGui/src/ofxButton.cpp; sourceTree = SOURCE_ROOT; };
@@ -511,7 +538,7 @@
 		E4B69B5B0A3A1756003C02F2 /* cvGeoGraphicsDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cvGeoGraphicsDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -1089,6 +1116,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				C6DD64EE19922B0700C28609 /* ofxBlackmagic */,
+				C6DD651119922B0700C28609 /* ofxPostGlitch */,
 				C60DCA931982869F00F8BE75 /* ofxXmlSettings */,
 				C60DC7971982834300F8BE75 /* ofxUI */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
@@ -1345,6 +1374,92 @@
 				C6395DFB198B6F7C0000EB2A /* sceneUtilities */,
 			);
 			name = TrainerSingleScene;
+			sourceTree = "<group>";
+		};
+		C6DD64EE19922B0700C28609 /* ofxBlackmagic */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD64EF19922B0700C28609 /* .gitignore */,
+				C6DD64FA19922B0700C28609 /* libs */,
+				C6DD650719922B0700C28609 /* license.md */,
+				C6DD650819922B0700C28609 /* readme.md */,
+				C6DD650919922B0700C28609 /* src */,
+			);
+			name = ofxBlackmagic;
+			path = ../../../addons/ofxBlackmagic;
+			sourceTree = "<group>";
+		};
+		C6DD64FA19922B0700C28609 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD64FB19922B0700C28609 /* DeckLink */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		C6DD64FB19922B0700C28609 /* DeckLink */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD64FC19922B0700C28609 /* include */,
+				C6DD650519922B0700C28609 /* src */,
+			);
+			path = DeckLink;
+			sourceTree = "<group>";
+		};
+		C6DD64FC19922B0700C28609 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD64FD19922B0700C28609 /* DeckLinkAPI.h */,
+				C6DD64FE19922B0700C28609 /* DeckLinkAPIConfiguration.h */,
+				C6DD64FF19922B0700C28609 /* DeckLinkAPIDeckControl.h */,
+				C6DD650019922B0700C28609 /* DeckLinkAPIDiscovery.h */,
+				C6DD650119922B0700C28609 /* DeckLinkAPIModes.h */,
+				C6DD650219922B0700C28609 /* DeckLinkAPIStreaming.h */,
+				C6DD650319922B0700C28609 /* DeckLinkAPITypes.h */,
+				C6DD650419922B0700C28609 /* DeckLinkAPIVersion.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		C6DD650519922B0700C28609 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD650619922B0700C28609 /* DeckLinkAPIDispatch.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		C6DD650919922B0700C28609 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD650A19922B0700C28609 /* ColorConversion.cpp */,
+				C6DD650B19922B0700C28609 /* ColorConversion.h */,
+				C6DD650C19922B0700C28609 /* DeckLinkController.cpp */,
+				C6DD650D19922B0700C28609 /* DeckLinkController.h */,
+				C6DD650E19922B0700C28609 /* ofxBlackMagic.cpp */,
+				C6DD650F19922B0700C28609 /* ofxBlackMagic.h */,
+				C6DD651019922B0700C28609 /* TripleBuffer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		C6DD651119922B0700C28609 /* ofxPostGlitch */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD651219922B0700C28609 /* README.md */,
+				C6DD653619922B0700C28609 /* src */,
+			);
+			name = ofxPostGlitch;
+			path = ../../../addons/ofxPostGlitch;
+			sourceTree = "<group>";
+		};
+		C6DD653619922B0700C28609 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD653719922B0700C28609 /* ofxPostGlitch.cpp */,
+				C6DD653819922B0700C28609 /* ofxPostGlitch.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		C756CAAFD542831674E15FE6 /* src */ = {
@@ -1620,6 +1735,7 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
+				C6DD653E19922B0700C28609 /* ofxPostGlitch.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
 				C60DCA361982834600F8BE75 /* ofxUIDropDownList.cpp in Sources */,
@@ -1647,6 +1763,7 @@
 				D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */,
 				C60DCA431982834600F8BE75 /* ofxUIMovingGraph.cpp in Sources */,
 				C64B8977196F010000852E81 /* cvGeoGraph.cpp in Sources */,
+				C6DD653B19922B0700C28609 /* ColorConversion.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				C60DCA321982834600F8BE75 /* ofxUIButton.cpp in Sources */,
@@ -1657,6 +1774,7 @@
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */,
+				C6DD653D19922B0700C28609 /* ofxBlackMagic.cpp in Sources */,
 				C66153A6198621C000ABA5A8 /* singleScene_delaunay.cpp in Sources */,
 				28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */,
 				C66153A919862D2700ABA5A8 /* singleScene_crossHatch.cpp in Sources */,
@@ -1671,12 +1789,14 @@
 				C60DCA581982834600F8BE75 /* ofxUIWidget.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
 				C6D6F93F1990D9C4009ACB4E /* trailGenerator.cpp in Sources */,
+				C6DD653C19922B0700C28609 /* DeckLinkController.cpp in Sources */,
 				C60DCA4A1982834600F8BE75 /* ofxUIRotarySlider.cpp in Sources */,
 				C60DCA481982834600F8BE75 /* ofxUIRangeSlider.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				AB85B33D4BDD7FE6AB56B5A6 /* ofxColorScheme.cpp in Sources */,
 				B6840996567E78436F7ECFAB /* ETF.cpp in Sources */,
 				C60DCA421982834600F8BE75 /* ofxUIMinimalSlider.cpp in Sources */,
+				C6DD653A19922B0700C28609 /* DeckLinkAPIDispatch.cpp in Sources */,
 				C6395E04198B6F900000EB2A /* singleScene_particle.cpp in Sources */,
 				F76B4A79BD8DE4854141CB47 /* fdog.cpp in Sources */,
 				C60DCA391982834600F8BE75 /* ofxUIFPSSlider.cpp in Sources */,

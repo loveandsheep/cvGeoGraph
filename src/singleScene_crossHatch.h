@@ -21,7 +21,11 @@ public:
 	virtual void update_virtual();
 	virtual void draw_virtual();
 
+	bool isFeatNew;
+	
+	vector<ofPoint> feat;
 	vector<ofPoint> feat_b;
+	vector<ofVec3f> velocity;
 };
 
 #endif /* defined(__cvGeoGraphics__singleScene_crossHatch__) */

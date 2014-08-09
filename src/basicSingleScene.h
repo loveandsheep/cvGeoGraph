@@ -36,6 +36,7 @@ public:
 
 	cvGeoGraph*		geoGraphPtr;
 	ofFloatColor	baseColor;
+	float			soundVolume;
 };
 
 #endif /* defined(__cvGeoGraphics__basicSingleScene__) */

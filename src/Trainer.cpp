@@ -8,21 +8,25 @@
 
 #include "Trainer.h"
 
-void Trainer::setup(){
+void Trainer::setup(bool useCamera, int deviceId){
 
 	geoGraph.setup();
+	videoGrab = useCamera;
 
 	//Video management========================
 	currentVideo = 0;
 
-	addVideo("videos/Yuri.mov");
-	addVideo("videos/Kei_pj.mov");
-	addVideo("videos/Twin.mov");
-	addVideo("tofu.mp4");
+	if (!videoGrab){
+		addVideo("videos/Yuri.mov");
+		addVideo("videos/Kei_pj.mov");
+		addVideo("videos/Twin.mov");
+		addVideo("tofu.mp4");
 
-	for (int i = 0;i < videos.size();i++){
-		videos[i].play();
-		videos[i].setVolume(0.0);
+		for (int i = 0;i < videos.size();i++){
+			videos[i].play();
+			videos[i].setLoopState(OF_LOOP_NORMAL);
+			videos[i].setVolume(0.0);
+		}
 	}
 
 	//Scene management========================
@@ -33,12 +37,13 @@ void Trainer::setup(){
 	scenes.push_back(new singleScene_TileSquare());
 	scenes.push_back(new singleScene_panel());
 	scenes.push_back(new singleScene_particle());
-	scenes.push_back(new singleScene_trail());
+//	scenes.push_back(new singleScene_trail());
 
 	for (int i = 0;i < scenes.size();i++){
 		scenes[i]->setup(&geoGraph);
 	}
 
+	ofEnableArbTex();
 	ofFbo::Settings settings;
 	settings.width = 1280;
     settings.height = 720;
@@ -54,16 +59,40 @@ void Trainer::setup(){
 
 	buffer.allocate(settings);
 
-	videoGrab = false;
+	bmGrab = false;
 
-//	grabCam.listDevices();
-//	grabCam.setDeviceID(0);
-	if (videoGrab) grabCam.initGrabber(1280,720);
+	if (videoGrab){
+		if (bmGrab){
+			blackMagicGrabber.setup(1280, 720, 30);
+		}else{
+
+			vector<ofVideoDevice> vd = grabCam.listDevices();
+			for (int i = 0;i < vd.size();i++){
+				cout << "ID " << i << ":" << vd[i].deviceName << endl;
+			}
+
+			grabCam.setDeviceID(deviceId);
+			grabCam.initGrabber(1280,720);
+		}
+	}
 
 	maskRect[0].set(0, 0, 1280, 720);
+	maskRect[1].set(0, 0, 1280, 720);
+
+	postGlitch.setup(&buffer);
+
+	autoResetFlow = true;
+	fxEnable = true;
+	autoReset_step = ofRandom(5,15);
 }
 
 void Trainer::update(){
+
+	if (autoResetFlow && (ofGetFrameNum() % autoReset_step == 0)){
+		autoReset_step = ofRandom(10,50);
+		resetFlow();
+	}
+
 	if (ofGetKeyPressed('1')) currentVideo = 0;
 	if (ofGetKeyPressed('2')) currentVideo = 1;
 	if (ofGetKeyPressed('3')) currentVideo = 2;
@@ -73,15 +102,27 @@ void Trainer::update(){
 	if (ofGetKeyPressed('e')) currentGraph = 2;
 	if (ofGetKeyPressed('r')) currentGraph = 3;
 	if (ofGetKeyPressed('t')) currentGraph = 4;
-	if (ofGetKeyPressed('y')) currentGraph = 5;
+//	if (ofGetKeyPressed('y')) currentGraph = 5;
 
 
 	if (videoGrab){
 
-		grabCam.update();
-		if (grabCam.isFrameNew()){
-			geoGraph.update(grabCam.getPixelsRef());
-			scenes[currentGraph]->update();
+		if (bmGrab){
+
+			blackMagicGrabber.update();
+			if (ofGetFrameNum() > 60)
+				geoGraph.update(blackMagicGrabber.getColorPixels());
+
+		}else{
+
+			grabCam.update();
+			if (grabCam.isFrameNew()){
+
+				geoGraph.update(grabCam.getPixelsRef());
+				scenes[currentGraph]->update();
+				
+			}
+
 		}
 
 	}else{
@@ -89,16 +130,24 @@ void Trainer::update(){
 		videos[currentVideo].update();
 		geoGraph.update(videos[currentVideo].getPixelsRef());
 		scenes[currentGraph]->update();
+
 	}
 
+	scenes[currentGraph]->soundVolume = input_volume;
 
 }
 
 void Trainer::fboReflesh(){
 
 //	if (ofGetKeyPressed('v')){
-//		maskRect[0].set(ofRandom(640), ofRandom(420), ofRandom(780), ofRandom(420));
-//		maskRect[1].set(ofRandom(640), ofRandom(420), ofRandom(780), ofRandom(420));
+//		maskRect[0].set(0, 0, 1280, 720);
+//	}
+//
+//	if (ofGetKeyPressed('m')){
+//		for (int i = 0;i < MASK_NUM;i++){
+//			maskRect[i].set(ofRandom(640), ofRandom(420),
+//							ofRandom(1280), ofRandom(720));
+//		}
 //	}
 
 	buffer.begin();
@@ -107,9 +156,13 @@ void Trainer::fboReflesh(){
 
 	ofSetColor(200);
 
-	for (int i = 0;i < 2;i++){
+	for (int i = 0;i < MASK_NUM;i++){
 		if (videoGrab){
-			grabCam.getTextureReference().bind();
+			if (bmGrab){
+				blackMagicGrabber.getYuvTexture().bind();
+			}else{
+				grabCam.getTextureReference().bind();
+			}
 		}else{
 			videos[currentVideo].getTextureReference().bind();
 		}
@@ -131,47 +184,75 @@ void Trainer::fboReflesh(){
 		glEnd();
 
 		if (videoGrab){
-			grabCam.getTextureReference().unbind();
+			if (bmGrab){
+				blackMagicGrabber.getYuvTexture().unbind();
+			}else{
+				grabCam.getTextureReference().unbind();
+			}
 		}else{
 			videos[currentVideo].getTextureReference().unbind();
 		}
 
 	}
 
-	scenes[currentGraph]->draw();
+	if (fxEnable){
+		scenes[currentGraph]->draw();
 
-	ofSetColor(255);
-	for (int i = 0;i < buffer.getWidth();i+=200){
-		for (int j = 0;j < buffer.getHeight();j+=200){
-			ofPushMatrix();
-			ofTranslate(i, j);
-			ofLine(-5, 0, 5, 0);
-			ofLine(0, -5, 0, 5);
-			ofPopMatrix();
+		int step = 150;
+
+		ofSetColor(255);
+		for (int i = 0;i < buffer.getWidth();i+=step){
+			for (int j = 0;j < buffer.getHeight();j+=step){
+				ofPushMatrix();
+
+				ofTranslate(i + ((int)buffer.getWidth() % step) / 2,
+							j + ((int)buffer.getHeight()% step) / 2);
+
+				float scl = 5 + input_volume*15.0;
+				ofLine(-scl, 0, scl, 0);
+				ofLine(0, -scl, 0, scl);
+				ofPopMatrix();
+			}
 		}
+
 	}
 
 	buffer.end();
+
+	postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, ofGetKeyPressed('a'));
+	postGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER	, ofGetKeyPressed('a'));
+	postGlitch.setFx(OFXPOSTGLITCH_GLOW			, ofGetKeyPressed('s'));
+	postGlitch.setFx(OFXPOSTGLITCH_SHAKER		, ofGetKeyPressed('s'));
+	postGlitch.setFx(OFXPOSTGLITCH_NOISE		, ofGetKeyPressed('d'));
+	postGlitch.setFx(OFXPOSTGLITCH_SWELL		, ofGetKeyPressed('d'));
+	postGlitch.setFx(OFXPOSTGLITCH_SHAKER		, ofGetKeyPressed('s'));
+	
+	postGlitch.generateFx();
 }
 
 void Trainer::draw(int x,int y,int w,int h){
-	ofSetColor(255);
 	buffer.draw(x, y, w, h);
 
 }
 
 void Trainer::cutUp(){
 
-	geoGraph.flow.resetFlow();
-	videos[currentVideo].setPosition(ofRandom(cutRange_low,cutRange_high));
-	geoGraph.update(videos[currentVideo].getPixelsRef());
-	
+	if (!videoGrab){
+		videos[currentVideo].setPosition(ofRandom(cutRange_low,cutRange_high));
+		geoGraph.flow.resetFlow();
+		geoGraph.update(videos[currentVideo].getPixelsRef());
+	}
+
 }
 
 void Trainer::resetFlow(){
 
 	geoGraph.flow.resetFlow();
-	geoGraph.update(videos[currentVideo].getPixelsRef());
+	if (videoGrab){
+		geoGraph.update(grabCam.getPixelsRef());
+	}else{
+		geoGraph.update(videos[currentVideo].getPixelsRef());
+	}
 
 }
 

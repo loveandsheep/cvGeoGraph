@@ -33,8 +33,10 @@ void singleScene_Delaunay::draw_virtual(){
 	ofMesh tri = delaunay.triangleMesh;
 	ofFloatColor c = baseColor;
 
+	glLineWidth(2.0);//チャネル
 	for (int i = 0;i < tri.getNumIndices();i+=3){
 		c.setHue(baseColor.getHue() + ofNoise(i/12.5)/3.0);
+		if (i / 3 % 7 == 0) c.setHue(fmod(c.getHue() - 0.2f,1.0f));
 		ofSetColor(c);
 
 		if (i % 13 == 0)	glBegin(GL_TRIANGLES);
@@ -49,6 +51,7 @@ void singleScene_Delaunay::draw_virtual(){
 
 		glEnd();
 	}
+	glLineWidth(1.0);
 
 	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 	ofSetColor(255);

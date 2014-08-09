@@ -47,6 +47,7 @@ void particleEmitter::update(ofFloatColor c){
 void particleEmitter::draw(){
 
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
+	ofDisableArbTex();
 	ofEnablePointSprites();
 
 	texture.getTextureReference().bind();
@@ -57,6 +58,7 @@ void particleEmitter::draw(){
 	texture.getTextureReference().unbind();
 
 	ofDisablePointSprites();
+	ofEnableArbTex();
 	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 }
 

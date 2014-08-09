@@ -15,7 +15,8 @@ void cvGeoGraph::setup(){
 
 void cvGeoGraph::update(ofPixelsRef& pix){
 
-	flow.calcOpticalFlow(pix);
+	if (ofxCv::mean(ofxCv::toCv(pix))[0] > 1.0f)
+		flow.calcOpticalFlow(pix);
 
 }
 

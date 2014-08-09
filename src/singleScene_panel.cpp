@@ -32,6 +32,7 @@ void singleScene_panel::draw_virtual(){
 		c = baseColor;
 
 		c.setHue(baseColor.getHue()+ofNoise(i/34.1)/2.5);
+		if (i / 3 % 7 == 0) c.setHue(fmod(c.getHue() - 0.2f,1.0f));
 		ofSetColor(c);
 		ofEnableBlendMode(OF_BLENDMODE_ADD);
 
@@ -58,6 +59,10 @@ void singleScene_panel::draw_virtual(){
 
 	}
 
+	glLineWidth(2.0);//チャネル
+	c = baseColor;
+	ofSetColor(baseColor);
+	
 	if (feat.size() > 0){
 		for (int i = 0;i < 2;i++){
 			int idx[3];
@@ -73,7 +78,8 @@ void singleScene_panel::draw_virtual(){
 			glEnd();
 		}
 	}
-
+	glLineWidth(1.0);
+	
 	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 
 	feat_b.clear();

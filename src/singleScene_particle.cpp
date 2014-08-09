@@ -61,6 +61,9 @@ void singleScene_particle::draw_virtual(){
 	vector<ofPoint> feat = geoGraphPtr->flow.getFeatures();
 	if (feat_b.size() == 0)	feat_b = feat;
 
+	ofEnableBlendMode(OF_BLENDMODE_ADD);
+
+	glLineWidth(2.0);//チャネル
 	if (feat.size() > 0){
 		ofSetColor(c);
 		for (int i = 0;i < 2;i++){
@@ -77,6 +80,7 @@ void singleScene_particle::draw_virtual(){
 			glEnd();
 		}
 	}
+	glLineWidth(1.0);
 
 
 	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
