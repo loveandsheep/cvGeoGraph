@@ -31,13 +31,14 @@ void Trainer::setup(bool useCamera, int deviceId){
 
 	//Scene management========================
 
+	//MARK: シーンを追加したい時は、シーンのクラスをここでnewしてあげる。
 	currentGraph = 0;
 	scenes.push_back(new singleScene_Delaunay());
 	scenes.push_back(new singleScene_CrossHatch());
 	scenes.push_back(new singleScene_TileSquare());
 	scenes.push_back(new singleScene_panel());
 	scenes.push_back(new singleScene_particle());
-//	scenes.push_back(new singleScene_trail());
+	scenes.push_back(new singleScene_forHara());
 
 	for (int i = 0;i < scenes.size();i++){
 		scenes[i]->setup(&geoGraph);
@@ -97,12 +98,13 @@ void Trainer::update(){
 	if (ofGetKeyPressed('2')) currentVideo = 1;
 	if (ofGetKeyPressed('3')) currentVideo = 2;
 
+	//MARK: ここでシーンの切り替えをキーアサインしてしまってますが、ちょっと美しくないので違う書き方考えます…
 	if (ofGetKeyPressed('q')) currentGraph = 0;
 	if (ofGetKeyPressed('w')) currentGraph = 1;
 	if (ofGetKeyPressed('e')) currentGraph = 2;
 	if (ofGetKeyPressed('r')) currentGraph = 3;
 	if (ofGetKeyPressed('t')) currentGraph = 4;
-//	if (ofGetKeyPressed('y')) currentGraph = 5;
+	if (ofGetKeyPressed('y')) currentGraph = 5;
 
 
 	if (videoGrab){

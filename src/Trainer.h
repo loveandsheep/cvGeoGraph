@@ -14,12 +14,14 @@
 #include "ofxBlackMagic.h"
 #include "ofxPostGlitch.h"
 
+//MARK: シングルシーンのヘッダをここで読み込む
 #include "singleScene_delaunay.h"
 #include "singleScene_crossHatch.h"
 #include "singleScene_tileSquare.h"
 #include "singleScene_panel.h"
 #include "singleScene_particle.h"
 #include "singleScene_Trail.h"
+#include "singleScene_forHara.h"
 
 #define MASK_NUM 2
 class Trainer{

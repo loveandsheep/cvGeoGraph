@@ -106,6 +106,7 @@
 		C60DCA9D1982869F00F8BE75 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C60DCA971982869F00F8BE75 /* tinyxmlerror.cpp */; };
 		C60DCA9E1982869F00F8BE75 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C60DCA981982869F00F8BE75 /* tinyxmlparser.cpp */; };
 		C60DCA9F1982869F00F8BE75 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C60DCA9A1982869F00F8BE75 /* ofxXmlSettings.cpp */; };
+		C62AB30919970E21006EE7CE /* singleScene_forHara.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62AB30719970E21006EE7CE /* singleScene_forHara.cpp */; };
 		C6395E04198B6F900000EB2A /* singleScene_particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6395E02198B6F900000EB2A /* singleScene_particle.cpp */; };
 		C6395E08198B787D0000EB2A /* singleScene_Trail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6395E06198B787D0000EB2A /* singleScene_Trail.cpp */; };
 		C64B8977196F010000852E81 /* cvGeoGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C64B8975196F010000852E81 /* cvGeoGraph.cpp */; };
@@ -449,6 +450,8 @@
 		C60DCA9B1982869F00F8BE75 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		C6151136D101F857DAE12722 /* ofxCvImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvImage.cpp; sourceTree = SOURCE_ROOT; };
 		C61D3DACE506E4A1C3A6D782 /* highgui.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = highgui.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/highgui/highgui.hpp; sourceTree = SOURCE_ROOT; };
+		C62AB30719970E21006EE7CE /* singleScene_forHara.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = singleScene_forHara.cpp; sourceTree = "<group>"; };
+		C62AB30819970E21006EE7CE /* singleScene_forHara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleScene_forHara.h; sourceTree = "<group>"; };
 		C6395E02198B6F900000EB2A /* singleScene_particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = singleScene_particle.cpp; sourceTree = "<group>"; };
 		C6395E03198B6F900000EB2A /* singleScene_particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleScene_particle.h; sourceTree = "<group>"; };
 		C6395E06198B787D0000EB2A /* singleScene_Trail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = singleScene_Trail.cpp; sourceTree = "<group>"; };
@@ -1359,6 +1362,8 @@
 			children = (
 				C6C52CDD1986024800768AE7 /* basicSingleScene.h */,
 				C6C52CDC1986024800768AE7 /* basicSingleScene.cpp */,
+				C62AB30819970E21006EE7CE /* singleScene_forHara.h */,
+				C62AB30719970E21006EE7CE /* singleScene_forHara.cpp */,
 				C66153A5198621C000ABA5A8 /* singleScene_delaunay.h */,
 				C66153A4198621C000ABA5A8 /* singleScene_delaunay.cpp */,
 				C66153A819862D2700ABA5A8 /* singleScene_crossHatch.h */,
@@ -1828,6 +1833,7 @@
 				C60DCA4C1982834600F8BE75 /* ofxUISlider.cpp in Sources */,
 				C6C52CDE1986024800768AE7 /* basicSingleScene.cpp in Sources */,
 				5E39F94A08ADD7F0C2032152 /* Delaunay.cpp in Sources */,
+				C62AB30919970E21006EE7CE /* singleScene_forHara.cpp in Sources */,
 				C60DCA9D1982869F00F8BE75 /* tinyxmlerror.cpp in Sources */,
 				7A61C288AE942E5885881232 /* ofxEasyFft.cpp in Sources */,
 				C60DCA3C1982834600F8BE75 /* ofxUIImageSampler.cpp in Sources */,
